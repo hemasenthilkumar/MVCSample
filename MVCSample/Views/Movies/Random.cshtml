@@ -1,10 +1,11 @@
-﻿@model  MVCSample.Models.Movie    
-@using MVCSample.Models
+﻿@*@model  MVCSample.Models.Movie*@   
+@model MVCSample.ViewModels.RandomMovieViewModel
+@*@using MVCSample.Models*@
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<h2>@Model.Name</h2>*@
-<h2>@(((Movie)ViewData["Movie"]).Name)</h2>
-@ViewBag.Movie
+<h2>@Model.Movie.Name</h2>
+@*<h2>@(((Movie)ViewData["Movie"]).Name)</h2>
+@ViewBag.Movie*@
