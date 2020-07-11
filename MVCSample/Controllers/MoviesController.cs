@@ -14,12 +14,21 @@ namespace MVCSample.Controllers
         {
             var movie = new Movie();
             movie.Name = "Shrek!";
-            return View(movie);
+            ViewData["Movie"] = movie;
+            ViewBag.Movie = movie;
+            //return View(movie);
+            return View();
         }
 
         public ActionResult Edit(int id)
         {
             return Content("id=" + id);
+        }
+
+        [Route("movies/released/{year}/{month:regex(\\d{4}):range(1,12)}")]
+        public ActionResult ByReleaseDate(int year, byte month)
+        {
+            return Content(year + "/" + month);
         }
     }
 }
