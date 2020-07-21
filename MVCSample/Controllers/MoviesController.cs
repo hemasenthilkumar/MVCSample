@@ -15,20 +15,15 @@ namespace MVCSample.Controllers
         {
             var movie = new Movie();
             movie.Name = "Shrek!";
+            var movie1 = new Movie();
+            movie1.Name = "Wall-e";
             // ViewData["Movie"] = movie;
             //ViewBag.Movie = movie;
             //return View(movie);
-            var customers = new List<Customer>
-            {
-                new Customer {Name="C1"},
-                new Customer{Name="C2"}
-            };
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = customers
-            };
-            return View(viewModel);
+            List<Movie> m = new List<Movie>();
+            m.Add(movie);
+            m.Add(movie1);
+            return View(m);
         }
 
         //public ActionResult Edit(int id)
