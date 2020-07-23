@@ -15,7 +15,7 @@ else
     <thead>
         <tr>
             <th>Customer Details</th>
-            <th>Discount Rate</th>
+            <th>Membership Type</th>
         </tr>
     </thead>
     <tbody>
@@ -23,7 +23,7 @@ else
         {
             <tr>
                 <td><a href="@Url.Action("Details", "Customer",new { id = cus.Id })">@cus.Name</a></td>
-                <td>@cus.MembershipType.DiscountRate%</td>
+                <td>@cus.MembershipType.Name</td>
             </tr>
         }
     </tbody>

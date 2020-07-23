@@ -1,0 +1,25 @@
+﻿@model List<MVCSample.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Movie Name</th>
+            <th>Genre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var mov in Model)
+        {
+        <tr>
+            <td><a href="@Url.Action("Random", "Movies",new { id = mov.Id })">@mov.Name</a></td>
+            <td>@mov.Genre.Name</td>
+        </tr>
+        }
+    </tbody>
+</table>
