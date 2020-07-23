@@ -12,12 +12,14 @@ namespace MVCSample.Models
         public string Name { get; set; }
 
         public Genre Genre { get; set; }
+        [Required]
         public short GenreId { get; set; }
         [Required]
         public DateTime ReleaseDate { get; set; }
         [Required]
         public DateTime DateAdded { get; set; }
         [Required]
+        [Display(Name="Number in Stock")]
         public int NumberinStock { get; set; }
 
     }

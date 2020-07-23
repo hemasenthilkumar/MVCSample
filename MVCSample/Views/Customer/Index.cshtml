@@ -22,7 +22,7 @@ else
         @foreach (var cus in Model)
         {
             <tr>
-                <td><a href="@Url.Action("Details", "Customer",new { id = cus.Id })">@cus.Name</a></td>
+                <td><a href="@Url.Action("Edit", "Customer",new { id = cus.Id })">@cus.Name</a></td>
                 <td>@cus.MembershipType.Name</td>
             </tr>
         }
