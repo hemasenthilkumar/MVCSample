@@ -42,7 +42,7 @@ namespace MVCSample.Controllers
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
-            var viewModel = new NewMovieAdd()
+            var viewModel = new NewMovieAdd
             {
                 Genres = genres
             };
@@ -50,8 +50,14 @@ namespace MVCSample.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if(!ModelState.IsValid)
+            {
+                var viewModel = new NewMovieAdd(movie) { Genres = _context.Genres.ToList() };
+                return View("New", viewModel);
+            }
             if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
@@ -81,9 +87,8 @@ namespace MVCSample.Controllers
             {
                 return HttpNotFound();
             }
-            var viewModel = new NewMovieAdd()
+            var viewModel = new NewMovieAdd(movie)
             {
-                Movie = movie,
                 Genres = _context.Genres.ToList()
                 
             };

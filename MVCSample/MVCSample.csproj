@@ -257,11 +257,24 @@
     <Compile Include="Migrations\202007230910143_UpdateCustomer.designer.cs">
       <DependentUpon>202007230910143_UpdateCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007240657306_UpdateanyChanges.cs" />
+    <Compile Include="Migrations\202007240657306_UpdateanyChanges.designer.cs">
+      <DependentUpon>202007240657306_UpdateanyChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007240739207_UpdateanyChanges2.cs" />
+    <Compile Include="Migrations\202007240739207_UpdateanyChanges2.designer.cs">
+      <DependentUpon>202007240739207_UpdateanyChanges2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007240853013_updatechnges3.cs" />
+    <Compile Include="Migrations\202007240853013_updatechnges3.designer.cs">
+      <DependentUpon>202007240853013_updatechnges3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18Years.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\NewCustomerViewModel.cs" />
@@ -374,6 +387,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007230910143_UpdateCustomer.resx">
       <DependentUpon>202007230910143_UpdateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007240657306_UpdateanyChanges.resx">
+      <DependentUpon>202007240657306_UpdateanyChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007240739207_UpdateanyChanges2.resx">
+      <DependentUpon>202007240739207_UpdateanyChanges2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007240853013_updatechnges3.resx">
+      <DependentUpon>202007240853013_updatechnges3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

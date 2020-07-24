@@ -38,11 +38,54 @@ namespace MVCSample.Controllers
             else
                 return View(customer);
         }
+        //[HttpPost]
+        //public ActionResult Save(Customer customer)
+        //{
+        //    if(ModelState.IsValid==false)
+        //    {
+        //        var viewModel = new NewCustomerViewModel
+        //        {
+        //            Customer = customer,
+        //            MembershipTypes = _context.MembershipTypes.ToList();
+        //        };
+
+        //      }
+
+
+        //    if (customer.Id == 0)
+        //        _context.Customers.Add(customer);
+        //    else
+        //    {
+        //        var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+        //        customerInDb.Name = customer.Name;
+        //        customerInDb.BirthDate = customer.BirthDate;
+        //        customerInDb.MembershipTypeId = customer.MembershipTypeId;
+        //        customerInDb.IsSubscribedNewsLetter = customer.IsSubscribedNewsLetter;
+        //    }
+
+        //    _context.SaveChanges();
+
+        //    return RedirectToAction("Index", "Customer");
+        //}
+
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
-            if(customer.Id==0)
-            _context.Customers.Add(customer);
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new NewCustomerViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                };
+
+                return View("New", viewModel);
+            }
+
+            if (customer.Id == 0)
+                _context.Customers.Add(customer);
             else
             {
                 var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
@@ -51,14 +94,19 @@ namespace MVCSample.Controllers
                 customerInDb.MembershipTypeId = customer.MembershipTypeId;
                 customerInDb.IsSubscribedNewsLetter = customer.IsSubscribedNewsLetter;
             }
+
             _context.SaveChanges();
+
             return RedirectToAction("Index", "Customer");
         }
+
+
         public ActionResult New()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new NewCustomerViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
         };
             return View(viewModel);
